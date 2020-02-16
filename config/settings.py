@@ -49,7 +49,7 @@ PROJECT_APPS = [
     "conversations.apps.ConversationsConfig",
 ]
 
-THIRED_PARTY_APPS = ["django_countries"]
+THIRED_PARTY_APPS = ["django_countries", "django_seed"]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRED_PARTY_APPS
 
