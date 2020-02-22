@@ -25,7 +25,7 @@ SECRET_KEY = '1kq&na2q18+88m_rz0g+b(3u0lupc@r5^k6*f-$cjw&mwjldda'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,7 +49,11 @@ PROJECT_APPS = [
     "conversations.apps.ConversationsConfig",
 ]
 
-THIRED_PARTY_APPS = ["django_countries", "django_seed"]
+THIRED_PARTY_APPS = [
+    "django_countries", 
+    "django_seed",
+    "django_extensions",
+]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRED_PARTY_APPS
 
