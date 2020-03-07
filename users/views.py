@@ -1,11 +1,13 @@
 import os
 import requests
 
-from django.views         import View
-from django.views.generic import FormView
-from django.shortcuts     import render, redirect, reverse
-from django.urls          import reverse_lazy
-from django.contrib.auth  import authenticate, login, logout
+from django.views              import View
+from django.views.generic      import FormView
+from django.shortcuts          import render, redirect, reverse
+from django.urls               import reverse_lazy
+from django.contrib.auth       import authenticate, login, logout
+from django.core.files.base    import ContentFile
+from django.contrib.auth.forms import UserCreationForm
 
 from . import forms, models
 
@@ -170,9 +172,9 @@ def kakao_callback(request):
         
         if email is None:
             raise KakaoException()
-        properties      = profile_json.get("properties")
-        nickname        = properties.get("nickname")
-        thumbnail_image = properties.get("profile_image")
+        properties    = profile_json.get("properties")
+        nickname      = properties.get("nickname")
+        profile_image = properties.get("profile_image")
         
         try:
             user = models.User.objects.get(email=email)
@@ -189,6 +191,10 @@ def kakao_callback(request):
             )
             user.set_unusable_password()
             user.save()
+            
+            if profile_image is not None:
+                photo_request = requests.get(profile_image)
+                user.avatar.save(f"{nickname}-avatar", ContentFile(photo_request.content))
 
         login(request, user)
         return redirect(reverse("core:home"))
