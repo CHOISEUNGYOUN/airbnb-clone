@@ -1,5 +1,6 @@
 import uuid
 
+from django.utils.translation   import gettext_lazy as _
 from django.conf                import settings
 from django.contrib.auth.models import AbstractUser
 from django.db                  import models
@@ -49,6 +50,7 @@ class User(AbstractUser):
         (LOGIN_KAKAO,  "Kakao")
     )
 
+    first_name     = models.CharField(_("first name"), max_length=30, blank=True, default="Unnamed User")
     avatar         = models.ImageField(upload_to="avatars" ,blank=True)
     gender         = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
     bio            = models.TextField(blank=True)
