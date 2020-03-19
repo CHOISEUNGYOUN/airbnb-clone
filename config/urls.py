@@ -9,6 +9,7 @@ urlpatterns = [
     path("users/", include("users.urls", namespace="users")),
     path("reservations/", include("reservations.urls", namespace="reservations")),
     path("rooms/", include("rooms.urls", namespace="rooms")),
+    path("reviews/", include("reviews.urls", namespace="reviews")),
 ]
 
 if settings.DEBUG:
