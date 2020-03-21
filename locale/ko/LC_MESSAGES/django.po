@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-20 18:37+0900\n"
+"POT-Creation-Date: 2020-03-21 22:57+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,55 @@ msgstr "무단 복제 금지"
 msgid "All rights reserved."
 msgstr "이 사이트는 저작권의 보호를 받고 있습니다."
 
+#: templates/rooms/room_list.html:24
+#, python-format
+msgid "Page %(current_page)s of %(total_pages)s"
+msgstr "%(current_page)s 페이지 %(total_pages)s 페이지 중"
+
+#: users/mixins.py:14 users/mixins.py:25
+msgid "Can't go there"
+msgstr "해당 페이지로 이동 할 수 없습니다."
+
+#: users/mixins.py:19
+msgid "Page not found"
+msgstr ""
+
+#: users/models.py:23
+msgid "Male"
+msgstr "남"
+
+#: users/models.py:24
+msgid "Female"
+msgstr "여"
+
+#: users/models.py:25
+msgid "Other"
+msgstr "기타"
+
+#: users/models.py:32
+msgid "English"
+msgstr "영어"
+
+#: users/models.py:33
+msgid "Korean"
+msgstr "한국어"
+
 #: users/models.py:54
 msgid "first name"
-msgstr ""
+msgstr "이름"
+
+#: users/models.py:56
+msgid "gender"
+msgstr "성별"
+
+#: users/models.py:57
+msgid "bio"
+msgstr "자기소개"
+
+#: users/models.py:59
+msgid "language"
+msgstr "언어"
+
+#: users/models.py:78
+msgid "Verify Airbnb Account"
+msgstr "Airbnb 계정 인증"

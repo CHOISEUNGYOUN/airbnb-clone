@@ -1,3 +1,4 @@
+from django.utils.translation   import gettext_lazy as _
 from django.views               import View
 from django.urls                import reverse_lazy
 from django.contrib             import messages
@@ -10,18 +11,18 @@ class EmailLoginOnlyView(UserPassesTestMixin):
         return self.request.user.login_method == "email"
 
     def handle_no_permission(self):
-        messages.error(self.request, "Can't go there")
+        messages.error(self.request, _("Can't go there"))
         return redirect("core:home")
 
 class LoggedOutOnlyView(UserPassesTestMixin, View):
 
-    permission_denied_message = "Page not found"
+    permission_denied_message = _("Page not found")
 
     def test_func(self):
         return not self.request.user.is_authenticated
 
     def handle_no_permission(self):
-        messages.error(self.request, "Can't go there")
+        messages.error(self.request, _("Can't go there"))
         return redirect("core:home")
 
 class LoggedInOnlyView(LoginRequiredMixin):
