@@ -6,19 +6,18 @@
         </span>
         <span>© 2020 Nomad Coders. {% trans "All rights reserved." %} </span>
     </div>
-    <div class="mt-10">
+    <div class="mt-10 flex">
         {% get_current_language as LANGUAGE_CODE %}
-        {{LANGUAGE_CODE}}
         <select class="w-1/5 h-8" id="js-lang">
-            <option value="en" 
-            {% if LANGUAGE_CODE == 'en' %} 
+            <option value="en"
+                {% if LANGUAGE_CODE == 'en' %}
                 selected
-            {% endif %}
+                {% endif %}
             >English</option>
-            <option value="ko" 
-            {% if LANGUAGE_CODE == 'ko' %}
-                selected
-            {% endif %}
+            <option value="ko"
+                {% if LANGUAGE_CODE == 'ko' %}
+                    selected
+                {% endif %}
             >Korean</option>
         </select>
     </div>
